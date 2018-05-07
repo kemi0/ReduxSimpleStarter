@@ -35,7 +35,7 @@ class App extends Component{
                 {/* //check the praramerter your props are looking         */}
                 <VideoDetail video={this.state.selectedVideo} />
                 <VideoList 
-                // new props being passed
+                // new props being passed // you can pass it all the way through
                 onVideoSelect={selectedVideo => this.setState({selectedVideo})}
                 videos={ this.state.videos } />
             </div>
