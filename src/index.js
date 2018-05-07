@@ -1,4 +1,5 @@
 // create a new component. this component should produce some html
+import _ from 'lodash';
 import React, { Component }from 'react';
 import ReactDOM from 'react-dom';
 import SearchBar from './components/search_bar';
@@ -17,11 +18,7 @@ class App extends Component{
             videos: [],
             selectedVideo: null
         };
-
-    
-
      this.videoSearch('learning fuze');
-
  }
 
  videoSearch(term) {
@@ -36,9 +33,10 @@ class App extends Component{
 });
 }
     render() {
+        const videoSearch = _.debounce( (term) => {this.videoSearch(term) } , 300)
         return(
             <div>
-                <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
+                <SearchBar onSearchTermChange={videoSearch}/>
                 {/* //check the praramerter your props are looking         */}
                 <VideoDetail video={this.state.selectedVideo} />
                 <VideoList 
