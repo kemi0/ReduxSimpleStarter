@@ -19,7 +19,7 @@ class SearchBar extends Component {
             </div>
         );
     }
-    // es5 way of setting the event handler 
+// es5 way of setting the event handler 
 // onInputChange(e) {
 //     console.log(e.target.value)
 // }

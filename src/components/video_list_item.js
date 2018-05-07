@@ -1,6 +1,6 @@
 import React from 'react';
 
-const VideoListItem = ({ video }) => {
+const VideoListItem = ({ video, onVideoSelect }) => {
     // const video = props.vdieo; identical 
     // looking for the props with video
     console.log(video);

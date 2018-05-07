@@ -14,11 +14,15 @@ class App extends Component{
         super(props);
 
         this.state = {
-            videos: []
+            videos: [],
+            selectedVideo: null
         };
 
-        YTsearch({key: API_KEY, term: 'lebron james'}, (videos) => {
-            this.setState({ videos });
+        YTsearch({key: API_KEY, term: 'learning fuze'}, (videos) => {
+            this.setState({ 
+                videos: videos,
+                selectedVideo: videos[0]
+            });
             //this.setState( videos: videos )
             // when ever the key and value are the same 
             // syntacally suger 
@@ -28,8 +32,12 @@ class App extends Component{
         return(
             <div>
                 <SearchBar />
-                <VideoDetail videos={this.state.videos[0]} />
-                <VideoList videos={ this.state.videos } />
+                {/* //check the praramerter your props are looking         */}
+                <VideoDetail video={this.state.selectedVideo} />
+                <VideoList 
+                // new props being passed
+                onVideoSelect={selectedVideo => this.setState({selectedVideo})}
+                videos={ this.state.videos } />
             </div>
             
         ) 
