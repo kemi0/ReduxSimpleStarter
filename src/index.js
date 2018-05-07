@@ -18,20 +18,27 @@ class App extends Component{
             selectedVideo: null
         };
 
-        YTsearch({key: API_KEY, term: 'learning fuze'}, (videos) => {
-            this.setState({ 
-                videos: videos,
-                selectedVideo: videos[0]
-            });
-            //this.setState( videos: videos )
-            // when ever the key and value are the same 
-            // syntacally suger 
-    });
+    
+
+     this.videoSearch('learning fuze');
+
  }
+
+ videoSearch(term) {
+    YTsearch({key: API_KEY, term: term}, (videos) => {
+        this.setState({ 
+            videos: videos,
+            selectedVideo: videos[0]
+        });
+        //this.setState( videos: videos )
+        // when ever the key and value are the same 
+        // syntacally suger 
+});
+}
     render() {
         return(
             <div>
-                <SearchBar />
+                <SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
                 {/* //check the praramerter your props are looking         */}
                 <VideoDetail video={this.state.selectedVideo} />
                 <VideoList 
