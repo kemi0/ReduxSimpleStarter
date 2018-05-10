@@ -4,7 +4,7 @@ export function selectBook(book){
     // an object with a type property
     // the action creator contains the object that now can be passed
     // to all of the reducers 
-    console.log("A book has been selectd:", book.title)
+    // console.log("A book has been selectd:", book.title)
     return {
         type: 'BOOK_SELECTED',
         payload: book
